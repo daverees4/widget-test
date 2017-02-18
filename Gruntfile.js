@@ -36,7 +36,7 @@ module.exports = function(grunt) {
             "amd-loader": "lib/requirejs-ractive/amd-loader",
             rv: 'lib/requirejs-ractive/rv',
             Ractive: 'lib/ractive/build/Ractive',
-            jquery: "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min"
+            jquery: "lib/jquery/jquery"
           },
           packages: [
             { name: 'lodash', location: 'lib/lodash-amd' }

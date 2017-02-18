@@ -17,62 +17,21 @@ void 0!==c?null===c?void r.removeAttr(a,b):e&&"set"in e&&void 0!==(d=e.set(a,c,b
   if( css ) {
     helpers.addCssToDocument(css);
   }
-  
-  var scdata={
-id: "3",
-userId: "1",
-title: "David's Video 1",
-videoId: "fSBH5MzdWn",
-description: "Test description",
-performerInfo: "Performer Info",
-tags: "tags, tags, tags",
-created: "2017-02-10",
-updated: "2017-02-11 12:08:56",
-views: "0",
-programmeItems: [{
-id: "2",
-videoId: "3",
-title: "Programme Item 1",
-subtitle: "Dave's Piece",
-starttime: "100",
-endtime: "300",
-itemInfo: "This is a piece by Dave "
-},
-{
-id: "3",
-videoId: "3",
-title: "Second Piece",
-subtitle: "Dave ",
-starttime: "500",
-endtime: "1000",
-itemInfo: "This is the second piece in the concert. "
-},]};
-
-$(document).ready(function(){
-$.ajax({
-    url: 'http://stagecast.net/admin/web/index.php?r=api/video&videoId=fSBH5MzdWn',
-    dataType: 'JSONP',
-    jsonpCallback: 'myCallback',
-    type: 'GET',
-    success: function (data) {
-        console.log(data);
-        document.getElementById("output").innerHTML = JSON.stringify(data);
- 
-    }
-});
-            })
-
-
 
 
 
   
 
   return function(opts) {
+    $.getJSON("http://stagecast.net/admin/web/index.php?r=api/video&videoId=fSBH5MzdWn", useData);
+
+function useData(data)
+{
     var view = new Ractive({
       el: opts.el,
       template: template,
-      data: { videotitle: scdata.title}
+      data: {scdata: data}
     });
-  };
+}
+}
 });
